@@ -42,7 +42,7 @@ function build() {
 
     return tsp.src()
         .pipe(tsp())
-        .pipe(gulp.dest("./"));
+        .pipe(gulp.dest("./dist"));
 }
 
 

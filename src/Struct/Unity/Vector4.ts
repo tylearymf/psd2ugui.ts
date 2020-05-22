@@ -1,5 +1,9 @@
-class Vector4 extends Vector3 {
+import { Vector3 } from "./Vector3"
+
+export class Vector4 extends Vector3 {
     readonly w: number
+
+    public static zero: Vector4 = new Vector4(0, 0, 0, 0)
 
     constructor(x: number, y: number, z: number, w: number) {
         super(x, y, z)

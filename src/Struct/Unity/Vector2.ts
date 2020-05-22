@@ -1,6 +1,8 @@
-class Vector2 {
+export class Vector2 {
     readonly x: number
     readonly y: number
+
+    public static zero: Vector2 = new Vector2(0, 0)
 
     constructor(x: number, y: number) {
         this.x = x

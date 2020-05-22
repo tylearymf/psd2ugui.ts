@@ -4,14 +4,16 @@
   "description": "typescript版本的psd2ugui.extension",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "gulp clean",
+    "compile": "webpack"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tylearymf/psd2ugui.extension.ts.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "tylearymf",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tylearymf/psd2ugui.extension.ts/issues"

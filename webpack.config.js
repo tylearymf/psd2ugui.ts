@@ -1,19 +1,21 @@
 const path = require("path");
 module.exports = {
-  mode: 'production' || 'development',
+  mode: 'development',//'production' || 'development'
   entry: {
     index: "./src/main.ts"
   },
   output: {
     publicPath: __dirname + "/dist/", // 打包后资源文件的引用会基于此路径
     path: path.resolve(__dirname, "dist"), // 打包后的输出目录
-    filename: "bundle.js"
+    filename: "psd2ugui.js"
   },
   module: {
     rules: [
       {
         test: /\.ts?$/,
-        use: 'ts-loader',
+        use: {
+          loader: 'ts-loader'
+        },
         exclude: /node_modules/
       }
     ]
