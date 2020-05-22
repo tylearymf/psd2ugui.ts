@@ -1,0 +1,28 @@
+# Install Node.js and TypeScript and git.
+npm install -g typescript
+
+# install types-for-adobe
+npm init -y
+npm i types-for-adobe
+
+# create tsconfig.json
+{
+    "compilerOptions": {
+        "module": "none",
+        "noLib": true,
+        "types": [
+            "types-for-adobe/photoshop/2015.5"
+        ]
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
+
+# create index.ts and write your code
+alert(app.version)
+
+# compile typescript files
+tsc
+
+# open Adobe Photoshop -> File -> Scripts -> Other Script -> and open index.js
