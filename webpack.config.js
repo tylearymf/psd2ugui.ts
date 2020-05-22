@@ -2,7 +2,7 @@ const path = require("path");
 module.exports = {
   mode: 'production' || 'development',
   entry: {
-    index: "./src/index1.ts"
+    index: "./src/main.ts"
   },
   output: {
     publicPath: __dirname + "/dist/", // 打包后资源文件的引用会基于此路径
