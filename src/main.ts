@@ -12,9 +12,8 @@ let c = new Vector4(6, 7, 8, 9)
 alert(`app.version: ${app.version}`)
 
 //  a = <any>false
- a = <any>true
+a = <any>true
 let d = a ? 1 : "34"
 
 alert(`d:${d}`)
 alert(`BaseNode:${typeof (BaseNode)}`)
-

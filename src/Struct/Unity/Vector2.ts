@@ -1,6 +1,8 @@
+import { VectorType } from "../VectorType"
+
 export class Vector2 {
-    readonly x: number
-    readonly y: number
+    x: number
+    y: number
 
     public static zero: Vector2 = new Vector2(0, 0)
 
@@ -11,5 +13,26 @@ export class Vector2 {
 
     toString(): string {
         return "(" + this.x + "," + this.y + ")"
+    }
+
+    public static parse(array: string[]): Vector2 {
+        var vec = new Vector2(0, 0)
+        if (array) {
+            let arrayLen = array.length
+
+            for (let i = 0; i < arrayLen; i++) {
+                const element = parseInt(array[i]);
+
+                if (arrayLen == 1) {
+                    vec.y = vec.x = element
+                    break;
+                }
+                else {
+                    vec[VectorType[i]] = element
+                }
+            }
+        }
+
+        return vec
     }
 }

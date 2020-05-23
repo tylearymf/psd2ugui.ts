@@ -4,14 +4,17 @@ import { AnchorType } from "../Unity/AnchorType"
 import { Vector2 } from "../Unity/Vector2"
 import { Vector3 } from "../Unity/Vector3"
 import { Vector4 } from "../Unity/Vector4"
-
+import { LayerType } from './LayerType'
 
 export abstract class BaseLayer {
     public readonly doc: Document
     public readonly layer: Layer
+    public readonly artLayer: ArtLayer
+    public readonly layerSet: LayerSet
+
     public fullName: string
     public bounds: Bounds
-    public layerTypeName: string
+    public layerType: LayerType
     public visible: boolean
     public opacity: number
     public nodeName: string
@@ -27,6 +30,11 @@ export abstract class BaseLayer {
     protected scale_y: number
 
     constructor(doc: Document, layer: Layer) {
+        this.doc = doc
+        this.layer = layer
+
+        this.artLayer = layer as ArtLayer
+        this.layerSet = layer as LayerSet
 
     }
 

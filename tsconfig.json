@@ -2,10 +2,9 @@
     "compilerOptions": {
         "module": "CommonJS",
         "types": [
-            "types-for-adobe/photoshop/2015.5"
+            "./types/photoshop/2015.5"
         ],
         "lib": [
-            "DOM",
             "ES2015"
         ],
         // "noEmitOnError": true,
