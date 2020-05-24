@@ -1,9 +1,9 @@
 import { BaseNode } from "../Node/BaseNode"
 import { BaseLayer } from "../Layer/BaseLayer";
-import { ComponentType } from "../ComponentType"
-import { LayerType } from "../Layer/LayerType";
-import { ButtonType } from "../ButtonType";
-import { IJSONInfo, IButtonJSONInfo } from "./IJSONInfo";
+import { ComponentType } from "../EnumType/ComponentType"
+import { LayerType } from "../EnumType/LayerType";
+import { ButtonType } from "../EnumType/ButtonType";
+import { IJSONInfo, IButtonJSONInfo } from "../Interface/IJSONInfo";
 /**
  *
  *
@@ -35,14 +35,15 @@ export class ButtonNode extends BaseNode {
         }
     }
 
-    isValid(): boolean {
-        return true
-    }
-
     protected internal_toJSON(): IButtonJSONInfo {
         return {
             btnType: this.btnType,
             imageName: this.baseLayer.getExportName(),
         }
+    }
+
+
+    public static isValid(layer: Layer): boolean {
+        return true
     }
 }

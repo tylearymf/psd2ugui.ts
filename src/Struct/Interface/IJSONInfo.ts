@@ -1,4 +1,4 @@
-import { ButtonType } from "../ButtonType";
+import { ButtonType } from "../EnumType/ButtonType";
 import { Vector2 } from "../Unity/Vector2";
 
 export interface IJSONInfo {

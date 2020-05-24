@@ -1,21 +1,19 @@
 import { BaseLayer } from "../Layer/BaseLayer"
-import { AnchorType } from "../Unity/AnchorType"
-import { SymbolType } from "../Unity/SymbolType"
-import { ComponentType } from "../ComponentType"
-import { IJSONInfo, IButtonJSONInfo } from "./IJSONInfo"
+import { AnchorType } from "../EnumType/AnchorType"
+import { SymbolType } from "../EnumType/SymbolType"
+import { ComponentType } from "../EnumType/ComponentType"
+import { IJSONInfo } from "../Interface/IJSONInfo"
 
 export abstract class BaseNode {
-    protected readonly baseLayer: BaseLayer
-
     protected nodeType: ComponentType
     protected anchorType: AnchorType
     protected symbolType: SymbolType
 
-    protected hasImage: boolean = false
+    public hasImage: boolean = false
     protected is9Slice: boolean = false
     protected isCommon: boolean = false
 
-    constructor(baseLayer: BaseLayer) {
+    constructor(protected readonly baseLayer: BaseLayer) {
         this.anchorType = baseLayer.anchorType
         this.symbolType = baseLayer.symbolType
     }
@@ -31,6 +29,5 @@ export abstract class BaseNode {
         return json
     }
 
-    public abstract isValid(): boolean
     protected abstract internal_toJSON(): IJSONInfo
 }

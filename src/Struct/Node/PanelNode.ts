@@ -1,7 +1,7 @@
-import { IPanelJSONInfo } from './IJSONInfo';
+import { IPanelJSONInfo } from '../Interface/IJSONInfo';
 import { BaseNode } from "./BaseNode";
 import { BaseLayer } from '../Layer/BaseLayer';
-import { ComponentType } from '../ComponentType';
+import { ComponentType } from '../EnumType/ComponentType';
 
 export class PanelNode extends BaseNode {
 
@@ -11,12 +11,14 @@ export class PanelNode extends BaseNode {
         this.nodeType = ComponentType.PANEL
     }
 
-    public isValid(): boolean {
-        return true
-    }
     protected internal_toJSON(): IPanelJSONInfo {
         return {
 
         }
+    }
+    
+    
+    public static isValid(layer: Layer): boolean {
+        return true
     }
 }

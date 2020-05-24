@@ -1,8 +1,8 @@
 import { Vector4 } from './../Unity/Vector4';
-import { ISliceJSONInfo } from './IJSONInfo';
+import { ISliceJSONInfo } from '../Interface/IJSONInfo';
 import { BaseNode } from "./BaseNode";
 import { BaseLayer } from '../Layer/BaseLayer';
-import { ComponentType } from '../ComponentType';
+import { ComponentType } from '../EnumType/ComponentType';
 
 export class SliceNode extends BaseNode {
 
@@ -105,13 +105,14 @@ export class SliceNode extends BaseNode {
         }
     }
 
-    public isValid(): boolean {
-        return true
-    }
     protected internal_toJSON(): ISliceJSONInfo {
         return {
 
         }
     }
 
+    
+    public static isValid(layer: Layer): boolean {
+        return true
+    }
 }

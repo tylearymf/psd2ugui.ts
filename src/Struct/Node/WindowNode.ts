@@ -1,7 +1,7 @@
-import { IWindowJSONInfo } from './IJSONInfo';
+import { IWindowJSONInfo } from '../Interface/IJSONInfo';
 import { BaseNode } from "./BaseNode";
 import { BaseLayer } from '../Layer/BaseLayer';
-import { ComponentType } from '../ComponentType';
+import { ComponentType } from '../EnumType/ComponentType';
 
 export class WindowNode extends BaseNode {
 
@@ -11,12 +11,14 @@ export class WindowNode extends BaseNode {
         this.nodeType = ComponentType.WINDOW
     }
 
-    public isValid(): boolean {
-        return true
-    }
     protected internal_toJSON(): IWindowJSONInfo {
         return {
 
         }
+    }
+
+    
+    public static isValid(layer: Layer): boolean {
+        return true
     }
 }

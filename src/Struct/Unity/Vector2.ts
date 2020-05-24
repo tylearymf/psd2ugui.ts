@@ -1,12 +1,10 @@
-import { VectorType } from "../VectorType"
+import { VectorType } from "../EnumType/VectorType"
 
 export class Vector2 {
-    x: number
-    y: number
 
     public static zero: Vector2 = new Vector2(0, 0)
 
-    constructor(x: number, y: number) {
+    constructor(public x: number, public y: number) {
         this.x = x
         this.y = y
     }
@@ -16,7 +14,7 @@ export class Vector2 {
     }
 
     public static parse(array: string[]): Vector2 {
-        var vec = new Vector2(0, 0)
+        let vec = new Vector2(0, 0)
         if (array) {
             let arrayLen = array.length
 

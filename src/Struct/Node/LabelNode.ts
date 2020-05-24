@@ -1,7 +1,7 @@
 import { BaseNode } from "./BaseNode";
-import { ILabelJSONInfo, IJSONInfo, IButtonJSONInfo, ISpriteJSONInfo } from "./IJSONInfo";
+import { ILabelJSONInfo, IJSONInfo, IButtonJSONInfo, ISpriteJSONInfo } from "../Interface/IJSONInfo";
 import { BaseLayer } from "../Layer/BaseLayer";
-import { ComponentType } from "../ComponentType";
+import { ComponentType } from "../EnumType/ComponentType";
 import { Vector2 } from "../Unity/Vector2";
 
 export class LabelNode extends BaseNode {
@@ -28,17 +28,11 @@ export class LabelNode extends BaseNode {
             this.font = this.textItem.font
             this.color = this.textItem.color.rgb.hexValue
             //TODO this.fontSize = ActionDescriptorExtensions.GetTextItemSize()
-            
+
 
         } catch (error) {
 
         }
-    }
-
-
-
-    public isValid(): boolean {
-        return true
     }
 
     protected internal_toJSON(): ILabelJSONInfo {
@@ -53,4 +47,10 @@ export class LabelNode extends BaseNode {
             direction: this.direction,
         }
     }
+    
+
+    public static isValid(layer: Layer): boolean {
+        return true
+    }
+
 }

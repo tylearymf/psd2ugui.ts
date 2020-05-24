@@ -1,3 +1,9 @@
+/**
+ * 组件类型
+ *
+ * @export
+ * @enum {number}
+ */
 export enum ComponentType {
     //文本
     LABEL = "lab",

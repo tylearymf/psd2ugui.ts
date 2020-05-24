@@ -1,4 +1,9 @@
-//中心枢轴类型
+/**
+ * 中心枢轴类型
+ *
+ * @export
+ * @enum {number}
+ */
 export enum PivotType {
     TopLeft = "TopLeft",
     Left = "Left",

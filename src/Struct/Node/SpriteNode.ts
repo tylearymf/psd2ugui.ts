@@ -1,7 +1,7 @@
 import { BaseNode } from "./BaseNode";
-import { IJSONInfo, ISpriteJSONInfo } from "./IJSONInfo";
+import { IJSONInfo, ISpriteJSONInfo } from "../Interface/IJSONInfo";
 import { BaseLayer } from "../Layer/BaseLayer";
-import { ComponentType } from "../ComponentType";
+import { ComponentType } from "../EnumType/ComponentType";
 
 export class SpriteNode extends BaseNode {
 
@@ -15,12 +15,13 @@ export class SpriteNode extends BaseNode {
         this.imageName = baseLayer.getExportName()
     }
 
-    public isValid(): boolean {
-        return true
-    }
     protected internal_toJSON(): ISpriteJSONInfo {
         return {
             imageName: this.imageName
         }
+    }
+
+    public static isValid(layer: Layer): boolean {
+        return true
     }
 }

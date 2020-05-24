@@ -1,5 +1,10 @@
+/**
+ * 锚点类型
+ * Key是对应CS脚本的AnchorType.cs中的Value
+ * @export
+ * @enum {number}
+ */
 export enum AnchorType {
-    //Key是对应CS脚本的AnchorType.cs中的Value
     LEFTTOP = "lt",
     LEFT = "l",
     LEFTBOTTOM = "lb",
