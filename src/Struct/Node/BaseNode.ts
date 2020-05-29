@@ -10,6 +10,7 @@ export abstract class BaseNode {
     protected symbolType: SymbolType
 
     public hasImage: boolean = false
+    public imageName: string
     protected is9Slice: boolean = false
     protected isCommon: boolean = false
 

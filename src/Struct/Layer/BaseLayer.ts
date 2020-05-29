@@ -1,3 +1,4 @@
+import { NodeFactory } from './../../Factories/NodeFactory';
 import { AnchorType } from './../EnumType/AnchorType';
 import { SymbolType } from './../EnumType/SymbolType';
 import { LayerExportType } from './../EnumType/LayerExportType';
@@ -30,13 +31,15 @@ export class BaseLayer {
     public visible: boolean
     public opacity: number
     public nodeName: string
-    public nodeTypeName: string
+    public nodeType?: ComponentType
     public nodeArgs: string[]
     public firstName: string
     public secondName: string
     public isCommon: boolean
     public symbolType: SymbolType = SymbolType.Symbol1
     public anchorType?: AnchorType
+    public imageName: string
+
 
     protected scale_x: number
     protected scale_y: number
@@ -78,7 +81,7 @@ export class BaseLayer {
             let nodeArguments = this.secondName.split("_")
             this.nodeName = nodeArguments[0]
             if (nodeArguments.length > 1) {
-                this.nodeTypeName = nodeArguments[1]
+                this.nodeType = nodeArguments[1] as ComponentType
             }
             let spliceCount = 2
 
@@ -109,22 +112,22 @@ export class BaseLayer {
                     this.nodeName = this.layer.name
                 }
 
-                if (this.nodeTypeName === "") {
+                if (!this.nodeType) {
                     let sizex = this.bounds.z
                     let sizey = this.bounds.w
                     if (this.layerType == LayerType.ArtLayer) {
                         if (this.artLayer.kind == LayerKind.TEXT) {
-                            this.nodeTypeName = ComponentType.LABEL
+                            this.nodeType = ComponentType.LABEL
                         }
                         else if (sizex < Global.spriteMaxSize.x && sizey < Global.spriteMaxSize.y) {
-                            this.nodeTypeName = ComponentType.SPRITE
+                            this.nodeType = ComponentType.SPRITE
                         }
                         else {
-                            this.nodeTypeName = ComponentType.TEXTURE
+                            this.nodeType = ComponentType.TEXTURE
                         }
                     }
                     else {
-                        this.nodeTypeName = ComponentType.PANEL
+                        this.nodeType = ComponentType.PANEL
                     }
                 }
                 break;
@@ -135,13 +138,11 @@ export class BaseLayer {
         this.scale_y = Global.gameScreenSize.y / (<UnitValue>this.doc.height).value
 
         if (this.isValid()) {
-            this.baseNode = NodeFactory.GetInfoByTypeName(this)
-            if (this.baseNode.hasImage) {
-                this.imageName = String.format("{0}_{1}_{2}", this.nodeName, this.nodeTypeName, config.getImageSuffixIndex())
-            }
+            this.baseNode = NodeFactory.GetInstanceByType(this)
 
-            if (this.info["UpdateMembers"] != null) {
-                this.info.UpdateMembers()
+            if (this.baseNode.hasImage) {
+                this.imageName = `${this.nodeName}_${this.nodeType}_${Global.imageSuffixIndex}`
+                this.baseNode.imageName = this.getExportName()
             }
         }
     }
@@ -165,7 +166,7 @@ export class BaseLayer {
         }
 
         if (result) {
-            switch (this.nodeTypeName) {
+            switch (this.nodeType) {
                 case ComponentType.BUTTON:
                     result = result && ButtonNode.isValid(this.layer)
                     break;
@@ -189,7 +190,7 @@ export class BaseLayer {
                     break;
                 default:
                     this.doc.activeLayer = this.layer
-                    ShowError(`节点类型 未实现：'${this.nodeTypeName}'.\n图层已被选中，请修正.`)
+                    ShowError(`节点类型 未实现：'${this.nodeType}'.\n图层已被选中，请修正.`)
                     break;
             }
         }
@@ -283,8 +284,11 @@ export class BaseLayer {
 
             return this.imageName
         }
-
         //这里的nodeName为“图层名”
+
         return this.nodeName
+    }
+    toString(): string {
+        return JSON.stringify(this)
     }
 }

@@ -67,4 +67,23 @@ export class Global {
      * @memberof Global
      */
     public static moduleName: string
+
+    /**
+     * 主文档
+     *
+     * @static
+     * @type {Document}
+     * @memberof Global
+     */
+    public static mainDoc: Document
+
+    /**
+     * 导出图片后缀索引
+     *
+     * @static
+     * @type {number}
+     * @memberof Global
+     */
+    public static imageSuffixIndex: number
+
 }
