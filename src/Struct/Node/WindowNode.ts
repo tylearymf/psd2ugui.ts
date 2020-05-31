@@ -1,24 +1,21 @@
-import { IWindowJSONInfo } from '../Interface/IJSONInfo';
-import { BaseNode } from "./BaseNode";
-import { BaseLayer } from '../Layer/BaseLayer';
-import { ComponentType } from '../EnumType/ComponentType';
+namespace psd2ugui {
+    export class WindowNode extends BaseNode {
 
-export class WindowNode extends BaseNode {
+        constructor(baseLayer: BaseLayer) {
+            super(baseLayer)
 
-    constructor(baseLayer: BaseLayer) {
-        super(baseLayer)
-
-        this.nodeType = ComponentType.WINDOW
-    }
-
-    protected internal_toJSON(): IWindowJSONInfo {
-        return {
-
+            this.nodeType = ComponentType.WINDOW
         }
-    }
 
-    
-    public static isValid(layer: Layer): boolean {
-        return true
+        protected internal_toJSON(): IWindowJSONInfo {
+            return {
+
+            }
+        }
+
+
+        public static isValid(layer: Layer): boolean {
+            return true
+        }
     }
 }

@@ -1,27 +1,24 @@
-import { BaseNode } from "./BaseNode";
-import { IJSONInfo, ISpriteJSONInfo } from "../Interface/IJSONInfo";
-import { BaseLayer } from "../Layer/BaseLayer";
-import { ComponentType } from "../EnumType/ComponentType";
+namespace psd2ugui {
+    export class SpriteNode extends BaseNode {
 
-export class SpriteNode extends BaseNode {
+        imageName: string
 
-    imageName: string
+        constructor(baseLayer: BaseLayer) {
+            super(baseLayer)
 
-    constructor(baseLayer: BaseLayer) {
-        super(baseLayer)
-
-        this.nodeType = ComponentType.SPRITE
-        this.hasImage = true
-        this.imageName = baseLayer.getExportName()
-    }
-
-    protected internal_toJSON(): ISpriteJSONInfo {
-        return {
-            imageName: this.imageName
+            this.nodeType = ComponentType.SPRITE
+            this.hasImage = true
+            this.imageName = baseLayer.getExportName()
         }
-    }
 
-    public static isValid(layer: Layer): boolean {
-        return true
+        protected internal_toJSON(): ISpriteJSONInfo {
+            return {
+                imageName: this.imageName
+            }
+        }
+
+        public static isValid(layer: Layer): boolean {
+            return true
+        }
     }
 }
