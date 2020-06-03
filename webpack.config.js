@@ -1,9 +1,9 @@
 const path = require("path");
+const glob = require("glob");
+
 module.exports = {
   mode: 'development',//'production' || 'development'
-  entry: {
-    index: "./src/main.ts"
-  },
+  entry: glob.sync("./src/**/*.ts"),
   output: {
     publicPath: __dirname + "/dist/", // 打包后资源文件的引用会基于此路径
     path: path.resolve(__dirname, "dist"), // 打包后的输出目录

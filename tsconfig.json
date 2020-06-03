@@ -29,45 +29,5 @@
     ],
     "exclude": [
         "node_modules"
-    ],
-    "files": [
-        //Struct/EnumType
-        "src/Struct/EnumType/AnchorType.ts",
-        "src/Struct/EnumType/ButtonType.ts",
-        "src/Struct/EnumType/ComponentType.ts",
-        "src/Struct/EnumType/LayerExportType.ts",
-        "src/Struct/EnumType/LayerType.ts",
-        "src/Struct/EnumType/PivotType.ts",
-        "src/Struct/EnumType/SymbolType.ts",
-        "src/Struct/EnumType/VectorType.ts",
-        //Struct/Interface
-        "src/Struct/Interface/IArtLayerInfo.ts",
-        "src/Struct/Interface/IJSONInfo.ts",
-        //Struct/Unity
-        "src/Struct/Unity/Vector2.ts",
-        "src/Struct/Unity/Vector3.ts",
-        "src/Struct/Unity/Vector4.ts",
-        //Global
-        "src/Global.ts",
-        //Extensions
-        "src/Extensions/Extensions.ts",
-        "src/Extensions/LayerExtensions.ts",
-        //Factories
-        "src/Factories/NodeFactory.ts",
-        //Strcut/Layer
-        "src/Struct/Layer/BaseLayer.ts",
-        "src/Struct/Layer/LayerGroup.ts",
-        "src/Struct/Layer/NormalLayer.ts",
-        //Struct/Node
-        "src/Struct/Node/BaseNode.ts",
-        "src/Struct/Node/ButtonNode.ts",
-        "src/Struct/Node/LabelNode.ts",
-        "src/Struct/Node/PanelNode.ts",
-        "src/Struct/Node/SliceNode.ts",
-        "src/Struct/Node/SpriteNode.ts",
-        "src/Struct/Node/TextureNode.ts",
-        "src/Struct/Node/WindowNode.ts",
-        //Main
-        "src/main.ts"
     ]
 }
