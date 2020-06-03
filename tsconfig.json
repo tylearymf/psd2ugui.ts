@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "module": "CommonJS",
+        "module": "None",
         "lib": [
             "ES2015"
         ],
@@ -8,7 +8,7 @@
             "./types/photoshop/2015.5"
         ],
         // "noEmitOnError": true,
-        // "outFile": "./dist/psd2ugui.extension.js",
+        "outFile": "./dist/psd2ugui.extension.js",
         "removeComments": false,
         "target": "ES3",
         "moduleResolution": "Node",
@@ -18,14 +18,14 @@
         "declarationMap": true,
         "declaration": true,
         "sourceMap": true,
-        "declarationDir": "./dist/types",
+        // "declarationDir": "./dist/types",
         "outDir": "./dist",
-        "typeRoots": [
-            "./node_modules/@types",
-        ],
+        // "typeRoots": [
+        //     "./node_modules/@types",
+        // ],
     },
     "include": [
-        "./src/**/*"
+        "./src/**/*",
     ],
     "exclude": [
         "node_modules"

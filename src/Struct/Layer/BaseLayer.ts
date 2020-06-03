@@ -38,10 +38,10 @@ namespace psd2ugui {
             let nameSplits = this.fullName.split(reg)
             this.firstName = nameSplits.length === 2 ? nameSplits[0] : ""
             this.secondName = nameSplits.length === 2 ? nameSplits[1] : ""
-            this.isCommon = this.firstName.startsWith(Global.common_PrefixName)
+            this.isCommon = this.firstName.startsWith(Global.GetInstance().common_PrefixName)
             this.firstName = RemoveUnityNotSupportSymbol(this.firstName)
 
-            if (Global.layerExportType === LayerExportType.EnableAndTag) {
+            if (Global.GetInstance().layerExportType === LayerExportType.EnableAndTag) {
                 if (this.firstName === "" || this.secondName === "") {
                     this.doc.activeLayer = layer
                     ShowError(`该图层 \"${layer.name}\" 命名有问题.\n图层已被选中，请修正.`)
@@ -84,7 +84,7 @@ namespace psd2ugui {
                 this.nodeArgs = nodeArguments
             }
 
-            switch (Global.layerExportType) {
+            switch (Global.GetInstance().layerExportType) {
                 case LayerExportType.EnableLayer:
                 case LayerExportType.AllLayer:
                     if (this.nodeName === "") {
@@ -98,7 +98,7 @@ namespace psd2ugui {
                             if (this.artLayer.kind == LayerKind.TEXT) {
                                 this.nodeType = ComponentType.LABEL
                             }
-                            else if (sizex < Global.spriteMaxSize.x && sizey < Global.spriteMaxSize.y) {
+                            else if (sizex < Global.GetInstance().spriteMaxSize.x && sizey < Global.GetInstance().spriteMaxSize.y) {
                                 this.nodeType = ComponentType.SPRITE
                             }
                             else {
@@ -113,14 +113,14 @@ namespace psd2ugui {
             }
 
             this.nodeName = RemoveUnityNotSupportSymbol(this.nodeName)
-            this.scale_x = Global.gameScreenSize.x / (<UnitValue>this.doc.width).value
-            this.scale_y = Global.gameScreenSize.y / (<UnitValue>this.doc.height).value
+            this.scale_x = Global.GetInstance().gameScreenSize.x / (<UnitValue>this.doc.width).value
+            this.scale_y = Global.GetInstance().gameScreenSize.y / (<UnitValue>this.doc.height).value
 
             if (this.isValid()) {
                 this.baseNode = NodeFactory.GetInstanceByType(this)
 
                 if (this.baseNode.hasImage) {
-                    this.imageName = `${this.nodeName}_${this.nodeType}_${Global.imageSuffixIndex}`
+                    this.imageName = `${this.nodeName}_${this.nodeType}_${Global.GetInstance().imageSuffixIndex}`
                     this.baseNode.imageName = this.getExportName()
                 }
             }
@@ -129,7 +129,7 @@ namespace psd2ugui {
         isValid(): boolean {
             let result = false
 
-            switch (Global.layerExportType) {
+            switch (Global.GetInstance().layerExportType) {
                 case LayerExportType.EnableAndTag:
                     result = result || (this.nodeName !== "" && this.visible)
                     break;
@@ -140,7 +140,7 @@ namespace psd2ugui {
                     result = result || true
                     break;
                 default:
-                    ShowError("导出类型 未实现：" + Global.layerExportType)
+                    ShowError("导出类型 未实现：" + Global.GetInstance().layerExportType)
                     break;
             }
 
@@ -190,7 +190,7 @@ namespace psd2ugui {
             //先把轴调转，让其跟unity坐标轴方向一致
             pos.y = pos.y * -1
 
-            let pivotType = Global.pivotType
+            let pivotType = Global.GetInstance().pivotType
             switch (pivotType) {
                 case PivotType.TopLeft:
                     pos.x = pos.x - psdSize.x / 2
@@ -232,7 +232,7 @@ namespace psd2ugui {
                     ShowError(`锚点类型 未实现:${pivotType}`)
             }
 
-            if (Global.enableFit) {
+            if (Global.GetInstance().enableFit) {
                 pos.x = pos.x * this.scale_x
                 pos.y = pos.y * this.scale_y
             }
@@ -242,7 +242,7 @@ namespace psd2ugui {
         getUnitySize(): Vector2 {
             let size = this.getSize()
 
-            if (Global.enableFit) {
+            if (Global.GetInstance().enableFit) {
                 size.x = size.x * this.scale_x
                 size.y = size.y * this.scale_y
             }
@@ -257,7 +257,7 @@ namespace psd2ugui {
                         return this.firstName
                     }
                     else {
-                        return `${Global.moduleName}_${this.firstName}`
+                        return `${Global.GetInstance().moduleName}_${this.firstName}`
                     }
                 }
 

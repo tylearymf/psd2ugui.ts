@@ -3,7 +3,7 @@ namespace psd2ugui {
 
         public static GetInstanceByType(baseLayer: BaseLayer) {
             var nodeType = baseLayer.nodeType
-            Global.mainDoc.activeLayer = baseLayer.layer
+            Global.GetInstance().mainDoc.activeLayer = baseLayer.layer
 
             let node: BaseNode = null
             switch (nodeType) {

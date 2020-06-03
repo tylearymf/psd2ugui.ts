@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "gulp clean",
-    "compile": "webpack"
+    "compile": "gulp clean & tsc"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,6 @@
   "homepage": "https://github.com/tylearymf/psd2ugui.extension.ts#readme",
   "dependencies": {},
   "devDependencies": {
-    "glob": "^7.1.6",
     "gulp": "^4.0.2",
     "gulp-typescript": "^6.0.0-alpha.1",
     "ts-loader": "^7.0.4",

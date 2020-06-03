@@ -1,17 +1,19 @@
 namespace psd2ugui {
 
-    let a = new Vector2(1, 2)
-    let b = new Vector3(3, 4, 5)
-    let c = new Vector4(6, 7, 8, 9)
+    export function main() {
+        let a = new Vector2(1, 2)
+        let b = new Vector3(3, 4, 5)
+        let c = new Vector4(6, 7, 8, 9)
 
-    // alert(`a:${a} b:${b} c:${c}`)
+        // alert(`a:${a} b:${b} c:${c}`)
 
-    alert(`app.version: ${app.version}`)
+        alert(`app.version: ${app.version}`)
 
-    //  a = <any>false
-    a = <any>true
-    let d = a ? 1 : "34"
+        //  a = <any>false
+        a = <any>true
+        let d = a ? 1 : "34"
 
-    alert(`d:${d}`)
-    // alert(`BaseNode:${typeof (BaseNode)}`)
+        alert(`d:${d}`)
+        // alert(`BaseNode:${typeof (BaseNode)}`)
+    }
 }

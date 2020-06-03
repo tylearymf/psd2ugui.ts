@@ -8,7 +8,7 @@ namespace psd2ugui {
                 const element = layers[i];
 
                 let isContinue = false
-                switch (Global.layerExportType) {
+                switch (Global.GetInstance().layerExportType) {
                     case LayerExportType.EnableAndTag:
                         isContinue = !element.visible
                         break;

@@ -1,6 +1,16 @@
 namespace psd2ugui {
     export class Global {
 
+        static s_Instance: Global;
+        public static GetInstance(): Global {
+            if (this.s_Instance === undefined) {
+                this.s_Instance = new Global()
+            }
+
+            return this.s_Instance
+        }
+
+
         /**
          * 是否弹窗
          *
@@ -8,7 +18,7 @@ namespace psd2ugui {
          * @type {boolean}
          * @memberof Global
          */
-        public static showDialog: boolean = true
+        public showDialog: boolean = true
 
         /**
          * 图层导出类型
@@ -17,7 +27,7 @@ namespace psd2ugui {
          * @type {LayerExportType}
          * @memberof Global
          */
-        public static layerExportType: LayerExportType = LayerExportType.EnableAndTag
+        public layerExportType: LayerExportType = LayerExportType.EnableAndTag
 
         /**
          * 精灵最大尺寸，如果超出该尺寸则自动切换为大图
@@ -27,7 +37,7 @@ namespace psd2ugui {
          * @type {Vector2}
          * @memberof Global
          */
-        public static spriteMaxSize: Vector2 = new Vector2(512, 512)
+        public spriteMaxSize: Vector2 = new Vector2(512, 512)
 
         /**
          * 游戏屏幕尺寸
@@ -36,7 +46,7 @@ namespace psd2ugui {
          * @type {Vector2}
          * @memberof Global
          */
-        public static gameScreenSize: Vector2 = new Vector2(1920, 1080)
+        public gameScreenSize: Vector2 = new Vector2(1920, 1080)
 
         /**
          * 中心枢轴类型
@@ -45,7 +55,7 @@ namespace psd2ugui {
          * @type {PivotType}
          * @memberof Global
          */
-        public static pivotType: PivotType = PivotType.Center
+        public pivotType: PivotType = PivotType.Center
 
         /**
          * 是否自适应
@@ -54,7 +64,7 @@ namespace psd2ugui {
          * @type {boolean}
          * @memberof Global
          */
-        public static enableFit: boolean = false
+        public enableFit: boolean = false
 
         /**
          * 模块名
@@ -63,7 +73,7 @@ namespace psd2ugui {
          * @type {string}
          * @memberof Global
          */
-        public static moduleName: string
+        public moduleName: string
 
         /**
          * 主文档
@@ -72,7 +82,7 @@ namespace psd2ugui {
          * @type {Document}
          * @memberof Global
          */
-        public static mainDoc: Document
+        public mainDoc: Document
 
         /**
          * 导出图片后缀索引
@@ -81,7 +91,7 @@ namespace psd2ugui {
          * @type {number}
          * @memberof Global
          */
-        public static imageSuffixIndex: number
+        public imageSuffixIndex: number
 
         /**
          * 公共文件夹名称
@@ -90,7 +100,7 @@ namespace psd2ugui {
          * @type {string}
          * @memberof Global
          */
-        public static common_FolderName: string = "Common"
+        public common_FolderName: string = "Common"
 
         /**
          * 公共资源前缀名称
@@ -99,7 +109,7 @@ namespace psd2ugui {
          * @type {string}
          * @memberof Global
          */
-        public static common_PrefixName: string = "common_"
+        public common_PrefixName: string = "common_"
 
     }
 }

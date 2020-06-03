@@ -8,7 +8,7 @@ namespace psd2ugui {
      * @param {string} msg
      */
     export function ShowMsg(msg: string) {
-        if (Global.showDialog)
+        if (Global.GetInstance().showDialog)
             alert(msg)
     }
 
