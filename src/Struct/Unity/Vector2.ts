@@ -1,5 +1,5 @@
 namespace psd2ugui {
-    export class Vector2 {
+    export class Vector2 implements IStringIndexer {
 
         public static zero: Vector2 = new Vector2(0, 0)
 
@@ -7,6 +7,8 @@ namespace psd2ugui {
             this.x = x
             this.y = y
         }
+
+        [key: string]: any
 
         toString(): string {
             return "(" + this.x + "," + this.y + ")"

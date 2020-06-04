@@ -5,7 +5,7 @@ namespace psd2ugui {
             var nodeType = baseLayer.nodeType
             Global.GetInstance().mainDoc.activeLayer = baseLayer.layer
 
-            let node: BaseNode = null
+            let node: BaseNode
             switch (nodeType) {
                 case ComponentType.LABEL:
                     node = new LabelNode(baseLayer)

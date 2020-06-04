@@ -4,11 +4,18 @@ namespace psd2ugui {
             super(doc, artlayer)
         }
 
+
         public toJSON(): IArtLayerInfo {
+            let layerTypeName: string | undefined = this.layerType?.toString()
+            if (layerTypeName == undefined) layerTypeName = ''
+
+            let nodeTypeName: string | undefined = this.nodeType?.toString()
+            if (nodeTypeName == undefined) nodeTypeName = ''
+
             return {
                 name: this.nodeName,
-                layerTypeName: this.layerType.toString(),
-                nodeTypeName: this.nodeType.toString(),
+                layerTypeName: layerTypeName,
+                nodeTypeName: nodeTypeName,
                 nodeArgs: this.nodeArgs,
                 pos: this.getUnityPos(),
                 size: this.getUnitySize(),

@@ -38,7 +38,7 @@ namespace psd2ugui {
             let nameSplits = this.fullName.split(reg)
             this.firstName = nameSplits.length === 2 ? nameSplits[0] : ""
             this.secondName = nameSplits.length === 2 ? nameSplits[1] : ""
-            this.isCommon = this.firstName.startsWith(Global.GetInstance().common_PrefixName)
+            this.isCommon = this.firstName.indexOf(Global.GetInstance().common_PrefixName) == 0
             this.firstName = RemoveUnityNotSupportSymbol(this.firstName)
 
             if (Global.GetInstance().layerExportType === LayerExportType.EnableAndTag) {
@@ -49,8 +49,8 @@ namespace psd2ugui {
             }
 
             for (const key in SymbolType) {
-                const element = SymbolType[key];
-                if (this.fullName.includes(element)) {
+                const element = key as SymbolType;
+                if (this.fullName.indexOf(element) != -1) {
                     this.symbolType = <SymbolType>key
                     break;
                 }
@@ -67,9 +67,8 @@ namespace psd2ugui {
                 if (nodeArguments.length > 2) {
                     let tempAnchorType = nodeArguments[2]
                     for (let key in AnchorType) {
-                        const element: string = AnchorType[key]
-                        if (element === tempAnchorType) {
-                            this.anchorType = <AnchorType>key
+                        if (key === tempAnchorType) {
+                            this.anchorType = key as AnchorType
                             break;
                         }
                     }

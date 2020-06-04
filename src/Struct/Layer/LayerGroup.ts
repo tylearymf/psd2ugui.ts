@@ -15,7 +15,7 @@ namespace psd2ugui {
 
         }
 
-        public export(folderFullName) {
+        public export(folderFullName: string) {
             for (let i = 0; i < this.layers.length; i++) {
                 const element = this.layers[i];
                 element.export(folderFullName)

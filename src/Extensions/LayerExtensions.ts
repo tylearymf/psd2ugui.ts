@@ -2,7 +2,7 @@ namespace psd2ugui {
     export class LayerExtensions {
 
         public static GetLayerInfos(doc: Document, layers: Layer[]): Array<BaseLayer> {
-            let infos: Array<BaseLayer>
+            let infos: Array<BaseLayer> = new Array<BaseLayer>()
 
             for (let i = layers.length - 1; i >= 0; i--) {
                 const element = layers[i];

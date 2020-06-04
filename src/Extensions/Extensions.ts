@@ -1,6 +1,4 @@
 namespace psd2ugui {
-    declare var Error
-
     /**
      * 普通弹窗
      *
@@ -44,8 +42,8 @@ namespace psd2ugui {
      * @returns {string}
      */
     export function RGBToHex(r: number, g: number, b: number, a: number): string {
-        let toHex = function (rgb) {
-            var hex = Number(rgb).toString(16)
+        let toHex = function (rgb: number) {
+            var hex = rgb.toString(16)
             if (hex.length < 2) {
                 hex = "0" + hex
             }

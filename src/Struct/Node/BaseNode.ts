@@ -10,7 +10,7 @@ namespace psd2ugui {
         protected isCommon: boolean = false
 
         constructor(protected readonly baseLayer: BaseLayer) {
-            this.anchorType = baseLayer.anchorType
+            this.anchorType = baseLayer.anchorType as AnchorType
             this.symbolType = baseLayer.symbolType
         }
 
