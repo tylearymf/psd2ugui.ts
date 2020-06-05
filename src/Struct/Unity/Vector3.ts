@@ -15,10 +15,10 @@ namespace psd2ugui {
 
         public static parse(array: string[]): Vector3 {
             let vec = new Vector3(0, 0, 0)
-            if (array) {
-                let arrayLen = array.length
-
-                for (let i = 0; i < arrayLen; i++) {
+            let arrayLen = array ? array.length : 0
+            if (arrayLen > 0) {
+                const length: number = 3
+                for (let i = 0; i < length; i++) {
                     const element = parseInt(array[i]);
 
                     if (arrayLen == 1) {

@@ -10,12 +10,15 @@ namespace psd2ugui {
         alert(`app.version: ${app.version}`)
 
         //  a = <any>false
-        a = <any>true
         let d = a ? 1 : "34"
 
         alert(`d:${d}`)
 
         alert(JSON.stringify(a))
         // alert(`BaseNode:${typeof (BaseNode)}`)
+
+
+        let b = Vector2.parse("111,24,123,44,543".split(','))
+        alert(JSON.stringify(b))
     }
 }
