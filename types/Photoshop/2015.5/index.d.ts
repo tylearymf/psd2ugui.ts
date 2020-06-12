@@ -7088,12 +7088,12 @@ declare class ActionDescriptor {
   /**
    * The number of keys contained in the descriptor.
    */
-  static readonly count: number
+  readonly count: number
 
   /**
    * The class name of the referenced ActionDescriptor object.
    */
-  static readonly typename: string
+  readonly typename: string
 
   /**
    * Clears the descriptor.

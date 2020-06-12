@@ -42,4 +42,11 @@ namespace psd2ugui {
     export interface IWindowJSONInfo extends IJSONInfo {
 
     }
+
+    export interface IConfigJSONInfo {
+        name: string,
+        size: Vector2,
+        pivot: Vector2,
+        layers: Array<BaseLayer>
+    }
 }

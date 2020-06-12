@@ -119,7 +119,7 @@ namespace psd2ugui {
                 this.baseNode = NodeFactory.GetInstanceByType(this)
 
                 if (this.baseNode.hasImage) {
-                    this.imageName = `${this.nodeName}_${this.nodeType}_${Global.GetInstance().imageSuffixIndex}`
+                    this.imageName = `${this.nodeName}_${this.nodeType}_${Global.GetInstance().getImageSuffixIndex()}`
                     this.baseNode.imageName = this.getExportName()
                 }
             }

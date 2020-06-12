@@ -9,7 +9,7 @@ namespace psd2ugui {
         protected is9Slice: boolean = false
         protected isCommon: boolean = false
 
-        constructor(protected readonly baseLayer: BaseLayer) {
+        constructor(public readonly baseLayer: BaseLayer) {
             this.anchorType = baseLayer.anchorType as AnchorType
             this.symbolType = baseLayer.symbolType
         }

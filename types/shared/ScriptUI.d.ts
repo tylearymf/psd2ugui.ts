@@ -426,7 +426,7 @@ declare class ScriptUIBrush {
  * A helper object that encapsulates a drawing path for a figure to be drawn into a window or control.
  * Create with the newPath(), moveto(), lineto(), rectPath(), and ellipsePath() methods.Used as value of currentPath, where it is acted upon by methods such as closePath().Pass as optional argument to fillPath() and strokePath(), which otherwise act upon the current path.
  */
-declare class ScriptUIPath {}
+declare class ScriptUIPath { }
 
 /**
  * An object used to draw custom graphics, found in the graphics property of window, container, and control objects.
@@ -2393,7 +2393,7 @@ declare class _Control {
    * For orientation=column: left, right, fill
    * For orientation=stack:top, bottom, left, right, fill
    */
-  alignment: string
+  alignment: string | [string, string]
 
   /**
    * The boundaries of the element, in parent-relative coordinates.

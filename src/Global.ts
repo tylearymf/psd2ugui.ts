@@ -1,7 +1,7 @@
 namespace psd2ugui {
     export class Global {
 
-        static s_Instance: Global;
+        private static s_Instance: Global;
         public static GetInstance(): Global {
             if (this.s_Instance === undefined) {
                 this.s_Instance = new Global()
@@ -9,6 +9,8 @@ namespace psd2ugui {
 
             return this.s_Instance
         }
+
+        private imageSuffixIndex: number
 
 
         /**
@@ -91,7 +93,10 @@ namespace psd2ugui {
          * @type {number}
          * @memberof Global
          */
-        public imageSuffixIndex: number
+        public getImageSuffixIndex(): number {
+            this.imageSuffixIndex = this.imageSuffixIndex + 1
+            return this.imageSuffixIndex
+        }
 
         /**
          * 公共文件夹名称
