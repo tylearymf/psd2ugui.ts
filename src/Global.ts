@@ -10,8 +10,7 @@ namespace psd2ugui {
             return this.s_Instance
         }
 
-        private imageSuffixIndex: number
-
+        private imageSuffixIndex: number = 0
 
         /**
          * 是否弹窗
@@ -75,7 +74,31 @@ namespace psd2ugui {
          * @type {string}
          * @memberof Global
          */
-        public moduleName: string
+        public moduleName: string = ""
+
+        /**
+         * PSD 文件路径
+         *
+         * @type {string}
+         * @memberof Global
+         */
+        public psdPath: string = ""
+
+        /**
+         * PSD 尺寸
+         *
+         * @type {Vector2}
+         * @memberof Global
+         */
+        public psdSize: Vector2
+
+        /**
+         * 基于像素点检测，相同图片是否只导出一张
+         *
+         * @type {boolean}
+         * @memberof Global
+         */
+        public onlyOneImage: boolean = false
 
         /**
          * 主文档
@@ -115,6 +138,99 @@ namespace psd2ugui {
          * @memberof Global
          */
         public common_PrefixName: string = "common_"
+
+        /**
+         * 第一个窗口名
+         *
+         * @type {string}
+         * @memberof Global
+         */
+        public firstWindowName: string = ""
+
+        /**
+         * 第一个面板名
+         *
+         * @type {string}
+         * @memberof Global
+         */
+        public firstPanelName: string = ""
+
+        /**
+         * 基本配置信息
+         *
+         * @type {Config}
+         * @memberof Global
+         */
+        public config: Config
+
+        /**
+         * 文件目录配置信息
+         *
+         * @type {FileConfig}
+         * @memberof Global
+         */
+        public fileConfig: FileConfig
+
+        /**
+         * The current debugging level, which enables or disables the JavaScript debugger.
+         * One of 0 (no debugging), 1 (break on runtime errors), or 2 (full debug mode).
+         *
+         * @param {number} mode
+         * @memberof Global
+         */
+        public setDebugMode(mode: number) {
+            $.level = mode
+        }
+
+        /**
+         * 是否捕获异常
+         *
+         * @returns {boolean}
+         * @memberof Global
+         */
+        public isTryCatch(): boolean {
+            return $.level != 2
+        }
+
+        /**
+         * 获取一份配置数据
+         *
+         * @returns {IConfigData}
+         * @memberof Global
+         */
+        public getConfigData(): IConfigData {
+            let configData: IConfigData = {
+                psdPath: this.psdPath,
+                psdSize: this.psdSize,
+                pivotType: this.pivotType,
+                gameScreenSize: this.gameScreenSize,
+                enableFit: this.enableFit,
+                onlyOneImage: this.onlyOneImage,
+                layerExportType: this.layerExportType,
+                moduleName: this.moduleName
+            }
+
+            return configData
+        }
+
+        /**
+         * 同名资源不导出
+         *
+         * @type {boolean}
+         * @memberof Global
+         */
+        public sameNameNoExport: boolean = true
+        public exportNameDic: any
+
+        /**
+         * 导出方案
+         * 1 为 默认的Web模式导出
+         * 2 为 PNG模式导出
+         *
+         * @type {number}
+         * @memberof Global
+         */
+        public exportImagePlan: number = 1
 
     }
 }

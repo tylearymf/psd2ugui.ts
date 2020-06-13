@@ -5,6 +5,10 @@ namespace psd2ugui {
             super(baseLayer)
 
             this.nodeType = ComponentType.PANEL
+
+            if (Global.GetInstance().firstPanelName == "") {
+                Global.GetInstance().firstPanelName = baseLayer.nodeName
+            }
         }
 
         protected internal_toJSON(): IPanelJSONInfo {

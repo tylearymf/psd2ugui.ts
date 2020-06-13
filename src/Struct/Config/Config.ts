@@ -1,5 +1,5 @@
 namespace psd2ugui {
-    interface IConfigData {
+    export interface IConfigData {
         /**
          * PSD路径
          */
@@ -35,11 +35,10 @@ namespace psd2ugui {
     }
 
     export class Config {
-
         private pivot: Vector2
 
-        constructor(public readonly doc: Document, public readonly info: IConfigData, public readonly layers: Array<BaseLayer>) {
-            let pivotType = this.info.pivotType
+        constructor(public readonly doc: Document, public readonly data: IConfigData, public layers?: Array<BaseLayer>) {
+            let pivotType = this.data.pivotType
 
             switch (pivotType) {
                 case PivotType.TopLeft:
@@ -75,16 +74,20 @@ namespace psd2ugui {
             }
         }
 
+        public setLayers(infos: BaseLayer[]) {
+            this.layers = infos
+        }
+
         public getPivotValue(): Vector2 {
             return this.pivot
         }
 
         public toJSON(): IConfigJSONInfo {
             return {
-                name: this.info.moduleName,
-                size: this.info.psdSize,
+                name: this.data.moduleName,
+                size: this.data.psdSize,
                 pivot: this.pivot,
-                layers: this.layers
+                layers: this.layers as BaseLayer[]
             }
         }
     }

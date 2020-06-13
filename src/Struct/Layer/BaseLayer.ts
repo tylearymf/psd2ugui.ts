@@ -1,5 +1,5 @@
 namespace psd2ugui {
-    export class BaseLayer {
+    export abstract class BaseLayer {
         public readonly artLayer: ArtLayer
         public readonly layerSet: LayerSet
         public readonly baseNode: BaseNode
@@ -269,5 +269,7 @@ namespace psd2ugui {
         toString(): string {
             return JSON.stringify(this)
         }
+
+        public abstract export() :void
     }
 }

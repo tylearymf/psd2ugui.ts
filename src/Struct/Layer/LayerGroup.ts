@@ -15,12 +15,11 @@ namespace psd2ugui {
 
         }
 
-        public export(folderFullName: string) {
+        public export(): void {
             for (let i = 0; i < this.layers.length; i++) {
                 const element = this.layers[i];
-                element.export(folderFullName)
+                element.export()
             }
         }
-
     }
 }

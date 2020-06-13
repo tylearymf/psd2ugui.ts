@@ -5,6 +5,10 @@ namespace psd2ugui {
             super(baseLayer)
 
             this.nodeType = ComponentType.WINDOW
+
+            if (Global.GetInstance().firstWindowName == "") {
+                Global.GetInstance().firstWindowName = baseLayer.nodeName
+            }
         }
 
         protected internal_toJSON(): IWindowJSONInfo {

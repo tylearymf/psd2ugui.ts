@@ -1,12 +1,11 @@
 namespace psd2ugui {
     export abstract class BaseNode {
-        protected nodeType: ComponentType
+        public nodeType: ComponentType
         protected anchorType: AnchorType
         protected symbolType: SymbolType
 
         public hasImage: boolean = false
         public imageName: string
-        protected is9Slice: boolean = false
         protected isCommon: boolean = false
 
         constructor(public readonly baseLayer: BaseLayer) {
