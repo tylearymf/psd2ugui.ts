@@ -22,9 +22,7 @@ namespace psd2ugui {
                 this.content = this.textItem.contents
                 this.font = this.textItem.font
                 this.color = this.textItem.color.rgb.hexValue
-                //TODO this.fontSize = ActionDescriptorExtensions.GetTextItemSize()
-
-
+                this.fontSize = ActionDescriptorExtensions.GetTextItemSize()
             } catch (error) {
 
             }

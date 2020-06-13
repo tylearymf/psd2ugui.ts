@@ -5,6 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "extendscript-debug",
+            "request": "launch",
+            "name": "extendscript-debug",
+            "program": "${workspaceFolder}/dist/psd2ugui.jsx",
+            "stopOnEntry": false,
+            "trace": true,
+            "engineName": "main",
+            "traceString": "V",
+            "cwd": "${workspaceFolder}"
+        },
+        {
             "name": "Current TS File",
             "type": "node",
             "request": "launch",

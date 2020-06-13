@@ -43,7 +43,8 @@ namespace psd2ugui {
     export function main() {
 
         //如果要调试就设置为2，然后出现异常的时候，ps会自动打开Adobe ExtendScript Toolkit CC并挂起ps
-        Global.GetInstance().setDebugMode(0)
+        Global.GetInstance().setDebugMode(2)
+        debugger;
 
         if (app.documents.length <= 0) {
             ShowError("请打开文档后再操作!")

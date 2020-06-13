@@ -22,13 +22,11 @@ namespace psd2ugui {
             let bottom = this.border.w
 
             if (left < 0 || right < 0 || bottom < 0 || top < 0) {
-                //TODO ShowError
-                // ShowError("九宫格信息错误！有效裁剪区域小于0")
+                ShowError("九宫格信息错误！有效裁剪区域小于0")
             }
 
             if ((left + right) > size.x || (top + bottom) > size.y) {
-                //TODO ShowError
-                // ShowError("九宫格信息错误！裁剪区域大于图片尺寸")
+                ShowError("九宫格信息错误！裁剪区域大于图片尺寸")
             }
 
             try {
@@ -95,8 +93,7 @@ namespace psd2ugui {
                 tempDoc.mergeVisibleLayers()
                 tempDoc.trim(TrimType.TRANSPARENT)
             } catch (error) {
-                //TODO ShowError
-                // ShowError("导出九宫格图片错误！" + error.toString())
+                ShowError("导出九宫格图片错误！" + error.toString())
             }
         }
 

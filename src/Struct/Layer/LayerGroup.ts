@@ -1,13 +1,13 @@
 namespace psd2ugui {
     export class LayerGroup extends BaseLayer {
 
-        layers: Array<NormalLayer>
+        layers: Array<BaseLayer>
 
         constructor(doc: Document, public readonly layerSet: LayerSet) {
             super(doc, layerSet)
 
             if (this.isValid()) {
-                //TODO
+                this.layers = LayerExtensions.GetLayerInfos(doc, layerSet.layers)
             }
         }
 
