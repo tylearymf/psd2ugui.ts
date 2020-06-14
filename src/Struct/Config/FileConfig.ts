@@ -9,7 +9,7 @@ namespace psd2ugui {
 
         constructor(config: Config) {
             this.name = "Config"
-            this.extension = ".JSON"
+            this.extension = ".json"
             this.folderName = "Configs"
             this.config = config
             this.path = config.data.psdPath

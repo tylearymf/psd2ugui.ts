@@ -12,7 +12,7 @@
             "stopOnEntry": false,
             "trace": true,
             "engineName": "main",
-            "traceString": "V",
+            // "traceString": "E",
             "cwd": "${workspaceFolder}"
         },
         {

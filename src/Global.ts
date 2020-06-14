@@ -19,7 +19,7 @@ namespace psd2ugui {
          * @type {boolean}
          * @memberof Global
          */
-        public showDialog: boolean = true
+        public showDialog: boolean = false
 
         /**
          * 图层导出类型
@@ -28,7 +28,7 @@ namespace psd2ugui {
          * @type {LayerExportType}
          * @memberof Global
          */
-        public layerExportType: LayerExportType = LayerExportType.EnableAndTag
+        public layerExportType: LayerExportType = LayerExportType.EnableLayer
 
         /**
          * 精灵最大尺寸，如果超出该尺寸则自动切换为大图
@@ -220,7 +220,7 @@ namespace psd2ugui {
          * @memberof Global
          */
         public sameNameNoExport: boolean = true
-        public exportNameDic: any
+        public exportNameDic: any = {}
 
         /**
          * 导出方案

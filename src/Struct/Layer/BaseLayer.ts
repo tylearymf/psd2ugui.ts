@@ -4,20 +4,20 @@ namespace psd2ugui {
         public readonly layerSet: LayerSet
         public readonly baseNode: BaseNode
 
-        public fullName: string
-        public bounds: Vector4
+        public fullName: string = ""
+        public bounds: Vector4 = Vector4.zero
         public layerType?: LayerType
         public visible: boolean
         public opacity: number
-        public nodeName: string
+        public nodeName: string = ""
         public nodeType?: ComponentType
         public nodeArgs: string[]
-        public firstName: string
-        public secondName: string
+        public firstName: string = ""
+        public secondName: string = ""
         public isCommon: boolean
         public symbolType: SymbolType = SymbolType.Symbol1
         public anchorType?: AnchorType
-        public imageName: string
+        public imageName: string = ""
 
 
         protected scale_x: number
@@ -133,7 +133,7 @@ namespace psd2ugui {
                     result = result || (this.nodeName !== "" && this.visible)
                     break;
                 case LayerExportType.EnableLayer:
-                    result == result || this.visible
+                    result = result || this.visible
                     break;
                 case LayerExportType.AllLayer:
                     result = result || true
@@ -262,14 +262,14 @@ namespace psd2ugui {
 
                 return this.imageName
             }
-            //这里的nodeName为“图层名”
 
+            //这里的nodeName为“图层名”
             return this.nodeName
         }
         toString(): string {
             return JSON.stringify(this)
         }
 
-        public abstract export() :void
+        public abstract export(): void
     }
 }

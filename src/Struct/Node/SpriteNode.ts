@@ -8,7 +8,6 @@ namespace psd2ugui {
 
             this.nodeType = ComponentType.SPRITE
             this.hasImage = true
-            this.imageName = baseLayer.getExportName()
         }
 
         protected internal_toJSON(): ISpriteJSONInfo {
